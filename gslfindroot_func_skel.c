@@ -190,7 +190,7 @@ double solve_newton_func_skel(param_func_skel p, double x, int *status)
   int max_iter=MAXITER;
   gsl_function_fdf FDF;
   int iter = 0;
-  double x0,r,r_expected;
+  double x0;
   const gsl_root_fdfsolver_type *T;
   gsl_root_fdfsolver *s;
   
@@ -214,7 +214,7 @@ double solve_newton_func_skel(param_func_skel p, double x, int *status)
     *status = gsl_root_test_delta (x, x0, 0, 1e-3);
   }
   while (*status == GSL_CONTINUE && iter < max_iter);
-  return r;
+  return x;
   
   /* do { */
   /*   iter++; */
